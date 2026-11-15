@@ -29,7 +29,7 @@ I am particularly interested in opportunities where I can contribute to a develo
 
 ## Featured Projects
 
-{% include project-cards.html limit=3 %}
+{% include project-cards.html limit=10 %}
 
 [Explore all projects]({{ '/portfolio/' | relative_url }})
 {: .home-text-link }
