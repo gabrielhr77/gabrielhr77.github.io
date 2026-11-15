@@ -32,46 +32,92 @@ ASD GameHub is a collaborative educational application designed with autistic ch
 The screenshots below were captured from the running Android application. Select any image to open it at full resolution.
 
 <style>
-/* Scoped gallery styles: no changes to the site's global SCSS are needed. */
+/* ASD GameHub: vertical Android screenshots, sized as phone cards. */
+.page__content .asd-gamehub-gallery,
 .asd-gamehub-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-  margin: 1.2rem 0 2rem;
-}
-.asd-gamehub-gallery figure {
-  min-width: 0;
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--global-border-color, #d0d4d8);
-  border-radius: 10px;
-  background: var(--global-bg-color, #fff);
-}
-.asd-gamehub-gallery a {
-  display: flex;
-  height: 305px;
-  align-items: center;
+  grid-template-columns: repeat(2, minmax(0, 215px));
   justify-content: center;
-  background: #eae5dc;
-}
-.asd-gamehub-gallery img {
-  display: block;
-  width: auto;
+  align-items: start;
+  column-gap: 1.2rem;
+  row-gap: 1.6rem;
   max-width: 100%;
+  margin: 1.4rem auto 2.4rem;
+}
+.page__content .asd-gamehub-gallery > figure,
+.asd-gamehub-gallery > figure {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 215px;
+  margin: 0 !important;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.page__content .asd-gamehub-gallery > figure > a,
+.asd-gamehub-gallery > figure > a {
+  display: block;
+  width: 100%;
   height: auto;
-  max-height: 100%;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;
+  border: 3px solid #252a32;
+  border-radius: 18px;
+  box-sizing: border-box;
+  background: #f9f5ee;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, .17);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.page__content .asd-gamehub-gallery > figure > a:hover,
+.asd-gamehub-gallery > figure > a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, .22);
+}
+.page__content .asd-gamehub-gallery > figure > a > img,
+.asd-gamehub-gallery > figure > a > img {
+  display: block;
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0;
+  border-radius: 0;
   object-fit: contain;
+  vertical-align: top;
 }
-.asd-gamehub-gallery figcaption {
-  padding: .7rem .8rem;
-  font-size: .78rem;
+.page__content .asd-gamehub-gallery > figure > figcaption,
+.asd-gamehub-gallery > figure > figcaption {
+  display: block;
+  margin: .65rem 0 0;
+  padding: 0 .2rem;
+  background: transparent;
+  color: inherit;
+  font-size: .82rem;
+  font-weight: 500;
   line-height: 1.45;
-  color: var(--global-text-color, inherit);
+  text-align: center;
 }
-@media (max-width: 550px) {
-  .asd-gamehub-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; }
-  .asd-gamehub-gallery a { height: 245px; }
-  .asd-gamehub-gallery figcaption { padding: .55rem; font-size: .73rem; }
+@media (max-width: 540px) {
+  .page__content .asd-gamehub-gallery,
+  .asd-gamehub-gallery {
+    grid-template-columns: minmax(0, 225px);
+    gap: 1.45rem;
+    margin: 1rem auto 2rem;
+  }
+  .page__content .asd-gamehub-gallery > figure,
+  .asd-gamehub-gallery > figure {
+    max-width: 225px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .asd-gamehub-gallery > figure > a { transition: none; }
 }
 </style>
 
