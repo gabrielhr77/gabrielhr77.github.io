@@ -1,14 +1,10 @@
 ---
 layout: archive
-title: "Portfolio"
+title: "Projects"
 permalink: /portfolio/
 author_profile: true
 ---
 
-{% include base_path %}
+<p class="portfolio-intro">Selected work across Machine Learning, scientific computing, web development and technical leadership. Each case study describes the problem, my contribution, and the technologies involved.</p>
 
-
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
-
+{% include project-cards.html %}

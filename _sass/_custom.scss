@@ -1,0 +1,198 @@
+/* Personal portfolio layer – compatible with the Academic Pages light/dark toggle. */
+:root {
+  --portfolio-accent: #176a89;
+  --portfolio-soft: #eef6f9;
+  --portfolio-card: #ffffff;
+  --portfolio-muted: #526378;
+  --portfolio-shadow: 0 8px 28px rgba(21, 41, 63, .075);
+}
+
+html[data-theme="dark"] {
+  --portfolio-accent: #86cce7;
+  --portfolio-soft: #384d56;
+  --portfolio-card: #303a43;
+  --portfolio-muted: #e1e6ed;
+  --portfolio-shadow: 0 8px 24px rgba(0, 0, 0, .16);
+}
+
+body { line-height: 1.68; }
+.page__content, .archive { line-height: 1.75; }
+.page__content p, .archive p { margin-bottom: 1.25rem; }
+.page__content h2, .archive h2 {
+  margin-top: 2.2rem;
+  padding-bottom: .45rem;
+  border-bottom: 1px solid var(--global-border-color);
+  font-weight: 700;
+}
+.page__content img, .archive img { max-width: 100%; height: auto; }
+.author__avatar img { border-radius: 50%; object-fit: cover; }
+.author__bio { line-height: 1.5; }
+.page__content a, .archive a { text-underline-offset: 3px; }
+
+/* A concise, editorial opening rather than a second template page title. */
+.home-hero {
+  padding: 1.25rem 0 1.6rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--global-border-color);
+}
+.home-hero__eyebrow {
+  margin: 0 0 .5rem !important;
+  color: var(--portfolio-accent);
+  font-size: .78rem;
+  font-weight: 750;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+.home-hero h1 {
+  margin: .12rem 0 .35rem;
+  font-size: clamp(2.0rem, 4vw, 3rem);
+  line-height: 1.16;
+  font-weight: 750;
+  letter-spacing: -.04em;
+}
+.home-hero__subtitle {
+  margin: 0 0 1rem !important;
+  font-size: clamp(1.04rem, 2.3vw, 1.32rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.home-hero__intro { max-width: 64ch; color: var(--global-text-color); }
+.home-hero__actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.25rem; }
+.home-button {
+  display: inline-block;
+  padding: .67rem 1rem;
+  border-radius: 7px;
+  border: 1px solid var(--portfolio-accent);
+  font-size: .86rem;
+  line-height: 1.3;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: transform .16s ease, opacity .16s ease;
+}
+.home-button:hover { transform: translateY(-2px); }
+.home-button--primary { background: var(--portfolio-accent); color: #ffffff !important; }
+html[data-theme="dark"] .home-button--primary { color: #142431 !important; }
+.home-button--secondary { background: transparent; color: var(--portfolio-accent) !important; }
+
+/* One responsive project grid reused on Home and Projects. */
+.featured-projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin: 1.4rem 0 2.2rem;
+}
+.project-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--global-border-color);
+  border-radius: 12px;
+  background: var(--portfolio-card);
+  box-shadow: var(--portfolio-shadow);
+  transition: transform .17s ease, box-shadow .17s ease;
+}
+.project-card:hover { transform: translateY(-3px); }
+.project-card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--portfolio-soft);
+}
+.project-card__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform .3s ease;
+}
+.project-card__image:hover img { transform: scale(1.035); }
+.project-card__placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  padding: 1rem;
+  background: var(--portfolio-soft);
+  text-align: center;
+  font-weight: 700;
+}
+.project-card__body { display: flex; flex: 1; flex-direction: column; padding: 1.15rem 1.2rem 1.3rem; }
+.project-card__category {
+  margin: 0 0 .45rem !important;
+  color: var(--portfolio-muted);
+  font-size: .73rem;
+  line-height: 1.4;
+  letter-spacing: .015em;
+  font-weight: 650;
+}
+.project-card__body h3 {
+  margin: 0 0 .65rem;
+  font-size: 1.08rem;
+  line-height: 1.32;
+  border: 0;
+}
+.project-card__body h3 a { color: var(--global-text-color); text-decoration: none; }
+.project-card__body h3 a:hover { color: var(--portfolio-accent); }
+.project-card__summary { font-size: .88rem; line-height: 1.6; margin: 0 0 1rem !important; }
+.project-card__tags { display: flex; flex-wrap: wrap; gap: .35rem; margin: auto 0 .8rem; }
+.project-card__tags span {
+  padding: .2rem .45rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: 5px;
+  background: var(--portfolio-soft);
+  color: var(--global-text-color);
+  font-size: .71rem;
+  line-height: 1.4;
+}
+.project-card__links { display: flex; flex-wrap: wrap; gap: .45rem .8rem; padding-top: .8rem; border-top: 1px solid var(--global-border-color); }
+.project-card__links a { color: var(--portfolio-accent); font-size: .83rem; line-height: 1.5; font-weight: 700; text-decoration: none; }
+.project-card__links a:hover { text-decoration: underline; }
+.portfolio-intro { max-width: 65ch; font-size: 1.02rem; }
+
+/* SEMCOMP case study: concrete outcomes in a restrained layout. */
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .6rem;
+  margin: 1.3rem 0 1.2rem;
+}
+.impact-item {
+  display: flex;
+  flex-direction: column;
+  gap: .22rem;
+  min-width: 0;
+  padding: .8rem .55rem;
+  border: 1px solid var(--global-border-color);
+  border-radius: 9px;
+  background: var(--portfolio-soft);
+  text-align: center;
+}
+.impact-item strong { font-size: clamp(1.1rem, 2.5vw, 1.5rem); line-height: 1.25; color: var(--portfolio-accent); }
+.impact-item span { font-size: .7rem; line-height: 1.4; }
+.cv-lead { max-width: 62ch; font-size: 1.05rem; }
+
+/* Research charts: readable and clickable through normal image URLs. */
+.page__content img[src*="traj_val"],
+.archive img[src*="traj_val"],
+.page__content img[src*="grade.png"],
+.archive img[src*="grade.png"] {
+  display: block;
+  width: 100%;
+  margin: 1.25rem auto .6rem;
+  border-radius: 8px;
+  background: white;
+}
+
+@media (max-width: 900px) {
+  .impact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 780px) {
+  .featured-projects { grid-template-columns: 1fr; }
+  .home-hero { padding-top: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-card, .project-card__image img, .home-button { transition: none; }
+}
+
+@import "barbershop-gallery";
